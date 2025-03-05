@@ -1,11 +1,14 @@
-import { useState } from "react";
-
-export default function SearchBar() {
-  const [search, setSearch] = useState("");
-
+export default function SearchBar({ search, onSearchChange }) {
   return (
     <div>
-      <input type="text" placeholder="Cerca" />
+      <label htmlFor="search">Cerca Utente</label>
+      <input
+        id="search"
+        type="search"
+        placeholder="Cerca Utente"
+        value={search}
+        onChange={(e) => onSearchChange(e.target.value)} // Passa il valore della ricerca
+      />
     </div>
   );
 }
